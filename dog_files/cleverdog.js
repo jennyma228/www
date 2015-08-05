@@ -1,12 +1,19 @@
 function uploadTxt(page)
 {
-  var formParam = $("#pageText").serialize(); 
+  var haha=document.getElementById("pagetext").value;
+      alert(haha);
+  haha=((haha.replace(/<(.+?)>/gi,"&lt;$1&gt;")).replace(/ /gi,"&nbsp;")).replace(/\n/g,"<br/>");
+      alert(haha);
+  document.getElementById("pagetext").value=haha;
+
+  var formParam = $("#formpageText").serialize(); 
   $.ajax({
      type:"POST",
      url:"/action/uploadTexts?mid="+page.value,
      dataType:"json",
      data:formParam,
      success:function(data){
+      alert(data.mytext);
        $("#mytitleDiv").html(data.mytitle);
        $("#mytextDiv").html(data.mytext);
      }
