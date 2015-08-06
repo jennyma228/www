@@ -70,6 +70,7 @@ function loginwebsite()
         $("#comcount").attr("buttom","1024");
         loadComment("buttom");
       }
+      $("#loginok").html('<a href="./index.jst?mid=1">返回</a>');
     },
     complete:function(XMLHttpRequest,textStatus){
     },

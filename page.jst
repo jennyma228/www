@@ -17,35 +17,37 @@
 
 <body>
  <div class="global">
+ <!--------------------------------------------------------------->
   <div class="header">
    <h1 class="logo logonews"><a href="./exe/returnIndex?mid=<% get_page(0);%>">机灵狗</a></h1>
 	 <span class="gochannels"></span>
   </div>
-
-   <div id="login" class="login"> 
+ <!--------------------------------------------------------------->
+  <div id="login" class="login"> 
     <div id="web_login" style="display: block;"> <!--web_login-->
-  <form id="logmein" name="logmein">
-     <ul id="g_list">
-      <li id="g_u"><input id="username" class="inputstyle" name="username" autocomplete="off" placeholder="姓名" /></li> 
-      <li id="g_p"><input id="password" class="inputstyle" maxlength="16" type="password" name="password" autocorrect="off" placeholder="学号" /></li>
-     </ul>
-     <div id="go" class="weak">登 录 </div> 
-     <div href="javascript:void(0);" id="onekey" style="display: none;">一键登录 </div> 
-  </form>
+      <form id="logmein" name="logmein">
+        <ul id="g_list">
+          <li id="g_u"><input id="username" class="inputstyle" name="username" autocomplete="off" placeholder="姓名" /></li> 
+          <li id="g_p"><input id="password" class="inputstyle" maxlength="16" type="password" name="password" autocorrect="off" placeholder="学号" /></li>
+        </ul>
+        <div id="go" class="weak">登 录 </div> 
+        <div href="javascript:void(0);" id="onekey" style="display: none;">一键登录 </div> 
+      </form>
     </div> <!--web_login-->
     <div id="switch"> 
       <span id="zc" onclick="window.open('./register.html')">注册新帐号</span> 
       <span id="loginerror" ></span> 
       <span id="forgetpwd" onclick="window.open('./forgot.html')">忘了密码？</span> 
     </div> 
-    <input id="user" name="admin" value="<% get_login(1); %>" showpage="hidden" hidden></div>
-   </div>
-
-</div>
-  
+    <input id="user" name="admin" value="<% get_login(1); %>" showpage="hidden" hidden/>
+  </div>
+ <!--------------------------------------------------------------->
+  </div><!--global-->
+<!--------------------------------------------------------------->
+ 
   <div style="clear:both"></div>
   <div class="primary"><h1 class="title" id="mytitleDiv" ><% get_title(1); %></h1>
- 
+   <!--------------------------------------------------------------->
    <div class="meta">
     <span class="time"><% get_time(1); %></span>
     <span class="author"><% get_auth(1); %></span>
@@ -56,33 +58,35 @@
       <a href="javascript:replaceDoc('./exe/nextPage?mid=<% get_page(0);%>&next_last=0')"><i class="next"></i></a>
     </span>
    </div>
+   <!--------------------------------------------------------------->
    <div data-role="page" class="content fontlarge">
     <div class="image">
      <img src="<% get_pic(1); %>"/>
     </div>
     <p class="split" id="mytextDiv"><% get_text(1); %></p>
    </div>
-   <div class="textform" id="file-text" hidden>
-    <form id="formpageText" >
-     <div class="commenttext"> 
-    <input class="titleform" type="text" id="pagetitle" name="mytitle" placeholder="主题"/>
-    <textarea id="pagetext" name="mytext" placeholder="<% get_text(1); %>"> </textarea>
-    <button type="button" onclick="uploadTxt(this)" value=<% get_page(0);%> >发表</button>
-     </div> 
-    </form>
-   </div>
-  </div>
- 
+   <!--------------------------------------------------------------->
+    <div class="textform" id="file-text" hidden>
+      <form id="formpageText" >
+        <div class="commenttext"> 
+        <input class="titleform" type="text" id="pagetitle" name="mytitle" placeholder="主题"/>
+        <textarea id="pagetext" name="mytext" placeholder="<% get_text(1); %>"> </textarea>
+        <button type="button" onclick="uploadTxt(this)" value=<% get_page(0);%> >发表</button>
+        </div> 
+      </form>
+    </div>
+   <!--------------------------------------------------------------->
+  </div><!--primary-->
+ <!--------------------------------------------------------------->
  <div class="comments">
 
-    <div class="commentform" hidden> 
-  <form id="myComment" class="commenttext">
+  <div class="commentform" hidden> 
+    <form id="myComment" class="commenttext">
       <textarea id="commenttexts" name="mytitle" placeholder="文明上网，理性发言"></textarea> 
       <input id="commenttext" type="text" name="mytext" value="comment" hidden></input>
       <button type="button" onclick="uploadComment(this)" value=<% get_page(0);%> >评论</button>
-  </form>
-   </div> 
-
+    </form>
+  </div> 
 
   <div class="commenthead" id="comcount" buttom="1024" top="1" lst_id="<% get_page(0);%>"><h2>热门评论</h2></div>
   <div class="content">
@@ -95,7 +99,9 @@
   <div class="more">
    <p><span class="gochannel">查看更多评论</span></p>
   </div>
- </div>
+
+ </div><!-- comments-->
+ <!--------------------------------------------------------------->
 
   <div class="footnav">
    <ul>
@@ -105,10 +111,11 @@
     <li><a href="./index.jst?mid=4">消息</a></li>
    </ul>
   </div>
+ <!--------------------------------------------------------------->
   <div class="footer">
    <div class="copyright"> Copyright © 1998 - 2015 CleverDog. All Rights Reserved</div>
   </div>
- </div>
+ <!--------------------------------------------------------------->
 </body>
 
 </html>
