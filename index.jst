@@ -12,8 +12,24 @@
  <meta name="apple-mobile-web-app-capable" content="yes" />
  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
  <script type="text/javascript" src="./dog_files/jquery.js"></script>
- <script type="text/javascript" src="./dog_files/cleverdog.js"></script>
- <script  type="text/javascript" src="./dog_files/touch.js">  </script>
+ <script  type="text/javascript">
+  $(function(){        
+    //获取要定位元素距离浏览器顶部的距离
+    var navH = $(".nav").offset().top;
+    //滚动条事件
+    $(window).scroll(function(){
+      //获取滚动条的滑动距离
+      var scroH = $(this).scrollTop();
+      //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
+      if(scroH>=navH){
+        $(".nav").css({"position":"fixed","top":0,"left":0});
+      }else if(scroH<navH){
+        $(".nav").css({"position":"static","margin":"0 auto"});
+      }
+      //console.log(scroH==navH);
+    })
+  })
+ </script>
 </head>
 
 <body>
@@ -23,12 +39,12 @@
   <h1 class="logo logonews"><a href="./index.jst?mid=1">机灵狗</a></h1>
  </div>
  <div class="nav">
- <ul>
-  <li class="<% get_ch(1); %>"><a href="./index.jst?mid=1">作业</a></li>
-  <li class="<% get_ch(2); %>"><a href="./index.jst?mid=2">活动</a></li>
-  <li class="<% get_ch(3); %>"><a href="./index.jst?mid=3">科普</a></li>
-  <li class="<% get_ch(4); %>"><a href="./index.jst?mid=4">消息</a></li>
- </ul>
+   <ul>
+    <li class="<% get_ch(1); %>"><a href="./index.jst?mid=1">作业</a></li>
+    <li class="<% get_ch(2); %>"><a href="./index.jst?mid=2">活动</a></li>
+    <li class="<% get_ch(3); %>"><a href="./index.jst?mid=3">科普</a></li>
+    <li class="<% get_ch(4); %>"><a href="./index.jst?mid=4">消息</a></li>
+   </ul>
  </div>
 
 <div class="gallery">

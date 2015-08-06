@@ -201,10 +201,10 @@ function loadComment(gettop)
         }
         //alert("top="+obj.comments[0].id+" buttom"+obj.comments[total-1].id);
       }
-      timeoutProcess=setTimeout("loadComment(\"top\")",10000);
+      timeoutProcess=setTimeout("loadComment(\"top\")",20000);
     },
     complete:function(XMLHttpRequest,textStatus){
-      timeoutProcess=setTimeout("loadComment(\"top\")",10000);
+      timeoutProcess=setTimeout("loadComment(\"top\")",20000);
     },
     error:function(e){
       $("#head").html("<h2>全部评论</h2>");
@@ -227,10 +227,10 @@ $(function(){
     var scroH = $(this).scrollTop();
     //滚动条的滑动距离大于等于定位元素距离浏览器顶部的距离，就固定，反之就不固定
     if(scroH>=navH){
-      $(".nav").css({"position":"fixed","top":0,"left":0});
+      $(".nav").css({"position":"fixed","top":0,"right":0});
     }else if(scroH<navH){
       $(".nav").css({"position":"static","margin":"0 auto"});
     }
-    console.log(scroH==navH);
+    //console.log(scroH==navH);
   })
 })

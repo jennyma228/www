@@ -19,9 +19,17 @@
  <div class="global">
  <!--------------------------------------------------------------->
   <div class="header">
-   <h1 class="logo logonews"><a href="./exe/returnIndex?mid=<% get_page(0);%>">机灵狗</a></h1>
+   <a href="./exe/returnIndex?mid=<% get_page(0);%>"><h1 class="logo logonews">机灵狗</h1></a>
 	 <span class="gochannels"></span>
   </div>
+   <div class="nav">
+     <ul>
+      <li class="<% get_ch(1); %>"><a href="./index.jst?mid=1">作业</a></li>
+      <li class="<% get_ch(2); %>"><a href="./index.jst?mid=2">活动</a></li>
+      <li class="<% get_ch(3); %>"><a href="./index.jst?mid=3">科普</a></li>
+      <li class="<% get_ch(4); %>"><a href="./index.jst?mid=4">消息</a></li>
+     </ul>
+   </div>
  <!--------------------------------------------------------------->
   <div id="login" class="login"> 
     <div id="web_login" style="display: block;"> <!--web_login-->
@@ -101,16 +109,6 @@
   </div>
 
  </div><!-- comments-->
- <!--------------------------------------------------------------->
-
-  <div class="footnav">
-   <ul>
-    <li><a href="./index.jst?mid=1">作业</a></li>
-    <li><a href="./index.jst?mid=2">活动</a></li>
-    <li><a href="./index.jst?mid=3">科普</a></li>
-    <li><a href="./index.jst?mid=4">消息</a></li>
-   </ul>
-  </div>
  <!--------------------------------------------------------------->
   <div class="footer">
    <div class="copyright"> Copyright © 1998 - 2015 CleverDog. All Rights Reserved</div>
