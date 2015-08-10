@@ -243,6 +243,9 @@ function loadPage(next_last)
         $("#comcount").attr("lst_id",data.id);
         $("#comcount").attr("buttom","1024");
         $("#comcount").attr("top","1");
+        $("#upTxt").attr("value",data.id);
+        $("#upComment").attr("value",data.id);
+        $("#returnmain").attr("href","./exe/returnIndex?mid="+data.id);
         loadComment("buttom");
       }
     },

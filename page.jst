@@ -37,7 +37,7 @@
  <div class="global">
  <!--------------------------------------------------------------->
   <div class="header">
-   <a href="./exe/returnIndex?mid=<% get_page(0);%>"><h1 class="logo logonews">机灵狗</h1></a>
+   <a id="returnmain" href="./exe/returnIndex?mid=<% get_page(0);%>"><h1 class="logo logonews">机灵狗</h1></a>
 	 <span class="gochannels"></span>
   </div>
    <div class="nav">
@@ -97,7 +97,7 @@
         <div class="commenttext"> 
         <input class="titleform" type="text" id="pagetitle" name="mytitle" placeholder="主题"/>
         <textarea id="pagetext" name="mytext" placeholder="<% get_text(1); %>"> </textarea>
-        <button type="button" onclick="uploadTxt(this)" value=<% get_page(0);%> >发表</button>
+        <button id="upTxt" type="button" onclick="uploadTxt(this)" value=<% get_page(0);%> >发表</button>
         </div> 
       </form>
     </div>
@@ -110,7 +110,7 @@
     <form id="myComment" class="commenttext">
       <textarea id="commenttexts" name="mytitle" placeholder="文明上网，理性发言"></textarea> 
       <input id="commenttext" type="text" name="mytext" value="comment" hidden></input>
-      <button type="button" onclick="uploadComment(this)" value=<% get_page(0);%> >评论</button>
+      <button id="upComment" type="button" onclick="uploadComment(this)" value=<% get_page(0);%> >评论</button>
     </form>
   </div> 
 
