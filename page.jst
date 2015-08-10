@@ -60,16 +60,16 @@
     <span class="time"><% get_time(1); %></span>
     <span class="author"><% get_auth(1); %></span>
     <span class="contentbar">
-      <a href="./action/deletePage?mid=<% get_page(0);%>"><i class="delete" hidden></i></a>
-      <a href="./upload.jst?mid=<% get_page(0);%>"><i class="uploader"  hidden></i></a>
-      <a href="javascript:replaceDoc('./exe/nextPage?mid=<% get_page(0);%>&next_last=1')"><i class="last"></i></a>
-      <a href="javascript:replaceDoc('./exe/nextPage?mid=<% get_page(0);%>&next_last=0')"><i class="next"></i></a>
+      <a id="delete" href="./action/deletePage?mid=<% get_page(0);%>"><i class="delete" hidden></i></a>
+      <a id="uploader" href="./upload.jst?mid=<% get_page(0);%>"><i class="uploader"  hidden></i></a>
+      <i class="last"></i>
+      <i class="next"></i>
     </span>
    </div>
    <!--------------------------------------------------------------->
    <div data-role="page" class="content fontlarge">
     <div class="image">
-     <img src="<% get_pic(1); %>"/>
+     <img src="<% get_pic(1); %>" id="imgsrc" />
     </div>
     <p class="split" id="mytextDiv"><% get_text(1); %></p>
    </div>

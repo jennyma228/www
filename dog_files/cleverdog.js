@@ -132,6 +132,12 @@ $(document).ready(function(){
   $("#go").click(function(){
     loginwebsite();
   });
+  $(".last").click(function(){
+    loadPage("last");
+  });
+  $(".next").click(function(){
+    loadPage("next");
+  });
 });
 
 function getJsonLength(jsonData){
@@ -162,7 +168,7 @@ function loadComment(gettop)
     type:"POST",
     url:"/exe/getComment?mid="+mid+req,
     dataType:"json",
-    data:{hear:$("#head").val()},
+    data:{mid:$("#comcount").attr("lst_id")},
     success:function(data){
       var obj = eval(data);
       var total=getJsonLength(obj.comments);
@@ -208,6 +214,41 @@ function loadComment(gettop)
     },
     error:function(e){
       $("#head").html("<h2>全部评论</h2>");
+    }
+  })
+}
+
+function loadPage(next_last)
+{
+  var mid=parseInt($("#comcount").attr("lst_id"));
+  var flag=(next_last=="last")?"1":"0";
+  //alert("next_last:"+next_last+" flag:"+flag);
+
+  $.ajax({
+    type:"POST",
+    url:"/exe/nextPage?mid="+mid+"&next_last="+flag,
+    dataType:"json",
+    data:{mid:$("#comcount").attr("lst_id")},
+    success:function(data){
+      if(parseInt(data.id)!=mid){
+        //alert("page="+data.id+" time"+data.txt_time+" author"+data.author+" title"+data.txt_title+" text"+data.txt_content+" picture"+data.picture);
+        document.title=data.txt_title;
+        $("#mytitleDiv").html(data.txt_title);
+        $(".time").html(data.txt_time);
+        $(".author").html(data.author);
+        $("#delete").attr("href","./action/deletePage?mid="+data.id);
+        $("#uploader").attr("href","./upload.jst?mid="+data.id);
+        $("#mytextDiv").html(data.txt_content);
+        $("#imgsrc").attr("src",data.picture);
+        $("#comcount").attr("lst_id",data.id);
+        $("#comcount").attr("buttom","1024");
+        $("#comcount").attr("top","1");
+        loadComment("buttom");
+      }
+    },
+    complete:function(XMLHttpRequest,textStatus){
+    },
+    error:function(e){
     }
   })
 }
