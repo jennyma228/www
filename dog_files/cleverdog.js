@@ -80,6 +80,30 @@ function loginwebsite()
   })
 }
 
+function registerwebsite()
+{
+  var formParam = $("#registerform").serialize(); 
+  $.ajax({
+    type:"POST",
+    url:"/exe/registerin",
+    dataType:"json",
+    data:formParam,
+    success:function(data){
+      //alert(data.register+'='+$("#username").val());
+      if(data.register==$("#username").val()){
+        $("#loginmsg").html('注册成功!<a href="./index.jst?mid=1">返回</a>');
+      }else{
+        $("#loginmsg").html('注册不成功,请重试!【'+data.register+'】或<a href="./index.jst?mid=1">放弃</a>');
+      }
+    },
+    complete:function(XMLHttpRequest,textStatus){
+    },
+    error:function(e){
+      $("#loginmsg").html("注册不成功,请重试!");
+    }
+  })
+}
+
 function editertoggle(){
   var user=$("#user").val();
   var auth=$(".author").html();
