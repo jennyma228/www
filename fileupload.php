@@ -76,7 +76,7 @@ if (!file_exists($uploadDir)) {
 if (isset($_REQUEST["name"])) {
     $fileName = $_REQUEST["name"];
 } elseif (!empty($_FILES)) {
-    $fileName = $_FILES["file"]["name"];
+    $fileName = $_FILES["fileField"]["name"];
 } else {
     $fileName = uniqid("file_");
 }
@@ -118,12 +118,12 @@ if (!$out = @fopen("{$filePath}_{$chunk}.parttmp", "wb")) {
 }
 
 if (!empty($_FILES)) {
-    if ($_FILES["file"]["error"] || !is_uploaded_file($_FILES["file"]["tmp_name"])) {
+    if ($_FILES["file"]["error"] || !is_uploaded_file($_FILES["fileField"]["tmp_name"])) {
         die('{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}');
     }
 
     // Read binary input stream and append it to temp file
-    if (!$in = @fopen($_FILES["file"]["tmp_name"], "rb")) {
+    if (!$in = @fopen($_FILES["fileField"]["tmp_name"], "rb")) {
         die('{"jsonrpc" : "2.0", "error" : {"code": 101, "message": "Failed to open input stream."}, "id" : "id"}');
     }
 } else {
