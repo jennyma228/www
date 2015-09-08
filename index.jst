@@ -13,20 +13,21 @@
  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
  <script type="text/javascript" src="./dog_files/jquery.js"></script>
  <script type="text/javascript" src="./dog_files/float.js"></script>
+ <script type="text/javascript" src="./dog_files/loadlist.js"></script>
 </head>
 
 <body>
-
+<div id="currentstate" channel_id="1" lst_id="2">
 <div class="global">
  <div class="header">
-  <h1 class="logo logonews"><a href="./index.jst?mid=1">机灵狗</a></h1>
+  <h1 class="logo logonews"><a href="./index.jst">机灵狗</a></h1>
  </div>
  <div class="nav">
    <ul>
-    <li class="<% get_ch(1); %>"><a href="./index.jst?mid=1">作业</a></li>
-    <li class="<% get_ch(2); %>"><a href="./index.jst?mid=2">活动</a></li>
-    <li class="<% get_ch(3); %>"><a href="./index.jst?mid=3">科普</a></li>
-    <li class="<% get_ch(4); %>"><a href="./index.jst?mid=4">消息</a></li>
+    <li class="off" id="ch1"><a href="javascript:switchchannel(1)">作业</a></li>
+    <li class="off" id="ch2"><a href="javascript:switchchannel(2)">活动</a></li>
+    <li class="off" id="ch3"><a href="javascript:switchchannel(3)">科普</a></li>
+    <li class="off" id="ch4"><a href="javascript:switchchannel(4)">消息</a></li>
    </ul>
  </div>
 
