@@ -17,39 +17,38 @@
 </head>
 
 <body>
-<div id="currentstate" channel_id="1" lst_id="2">
+<div id="currentstate" channel_id="1" lst_id="2"></div>
+
 <div class="global">
- <div class="header">
-  <h1 class="logo logonews"><a href="./index.jst">机灵狗</a></h1>
- </div>
- <div class="nav">
-   <ul>
+  <div class="header">
+    <h1 class="logo logonews"><a href="./index.jst">机灵狗</a></h1>
+  </div>
+
+  <div class="nav">
+    <ul>
     <li class="off" id="ch1"><a href="javascript:switchchannel(1)">最新</a></li>
     <li class="off" id="ch2"><a href="javascript:switchchannel(2)">作业</a></li>
     <li class="off" id="ch3"><a href="javascript:switchchannel(3)">活动</a></li>
     <li class="off" id="ch4"><a href="javascript:switchchannel(4)">科普</a></li>
-   </ul>
- </div>
+    <li class="off" id="ch5"><a href="javascript:switchchannel(5)">消息</a></li>
+    </ul>
+  </div>
 
-<div class="gallery">
+  <div class="gallery">
+  </div>
 
-<div class="galleryimage">
-</div>
+  <div class="list">
+    <ul id="index">
+    </ul>
+  </div>
 
-<div class="list">
- <ul id="index">
- </ul>
-</div>
+  <div class="more"> <a href="http://<% get_ip(); %>:5000/ueditor"> <span class="gomore">我要上传</span> </a> </div>
 
-<div class="more"> <a href="http://<% get_ip(); %>:5000/ueditor"> <span class="gomore">我要上传</span> </a> </div>
+  <div class="footer">
+    <div class="copyright">Copyright &copy; 1998 - 2015 CleverDog. All Rights Reserved</div>
+  </div>
 
-</div>
-
-<div class="footer">
- <div class="copyright"> 
-  Copyright &copy; 1998 - 2015 CleverDog. All Rights Reserved
- </div>
-</div>
+</div><!-- class="global" -->
 
 </body>
 </html>

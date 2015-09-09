@@ -32,12 +32,12 @@ function loadlist()
             var html="";
             html='<a href="./page.jst?mid='
             +obj.index[i].page
-            +'" class="galleryinner"><img src="./img_files/'
+            +'" class="galleryinner"><div class="galleryimage"><img src="./img_files/'
             +obj.index[i].pic
-            +'.jpg" /> </a></div><h2 class="gallerytitle">'
+            +'.jpg" /> </div><h2 class="gallerytitle">'
             +obj.index[i].title
-            +'</h2>';
-            $(".galleryimage").prepend(html);
+            +'</h2></a>';
+            $(".gallery").html(html);
           }else if(obj.index[i].mode=="150x120"){
             var html="";
             html='<li class="full"><div class="thumb"><a href="./page.jst?mid='
@@ -86,6 +86,7 @@ function switchchannel(ch)
       $("#ch2").attr("class","off");
       $("#ch3").attr("class","off");
       $("#ch4").attr("class","off");
+      $("#ch5").attr("class","off");
       $("#currentstate").attr("channel_id","1");
       //alert("ch11");
       break;
@@ -94,6 +95,7 @@ function switchchannel(ch)
       $("#ch2").attr("class","on");
       $("#ch3").attr("class","off");
       $("#ch4").attr("class","off");
+      $("#ch5").attr("class","off");
       $("#currentstate").attr("channel_id","2");
       //alert("ch21");
       break;
@@ -102,6 +104,7 @@ function switchchannel(ch)
       $("#ch2").attr("class","off");
       $("#ch3").attr("class","on");
       $("#ch4").attr("class","off");
+      $("#ch5").attr("class","off");
       $("#currentstate").attr("channel_id","3");
       //alert("ch31");
       break;
@@ -110,7 +113,17 @@ function switchchannel(ch)
       $("#ch2").attr("class","off");
       $("#ch3").attr("class","off");
       $("#ch4").attr("class","on");
+      $("#ch5").attr("class","off");
       $("#currentstate").attr("channel_id","4");
+      //alert("ch41");
+      break;
+    case 5:
+      $("#ch1").attr("class","off");
+      $("#ch2").attr("class","off");
+      $("#ch3").attr("class","off");
+      $("#ch4").attr("class","off");
+      $("#ch5").attr("class","on");
+      $("#currentstate").attr("channel_id","5");
       //alert("ch41");
       break;
   }
