@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<div id="currentstate" channel_id="1" lst_id="2"></div>
+<div id="currentstate" channel_id="<% get_ch(); %>" lst_id="2"></div>
 
 <div class="global">
   <div class="header">
@@ -25,14 +25,20 @@
   </div>
 
   <div class="nav">
-    <ul>
-    <li class="off" id="ch1"><a href="javascript:switchchannel(1)">最新</a></li>
-    <li class="off" id="ch2"><a href="javascript:switchchannel(2)">作业</a></li>
-    <li class="off" id="ch3"><a href="javascript:switchchannel(3)">活动</a></li>
-    <li class="off" id="ch4"><a href="javascript:switchchannel(4)">科普</a></li>
-    <li class="off" id="ch5"><a href="javascript:switchchannel(5)">消息</a></li>
+    <ul id="mynav">
+    <li ><a href="javascript:switchchannel(0)">最新</a></li>
+    <li ><a href="javascript:switchchannel(1)">作业</a></li>
+    <li ><a href="javascript:switchchannel(2)">活动</a></li>
+    <li ><a href="javascript:switchchannel(3)">科普</a></li>
+    <li ><a href="javascript:switchchannel(4)">消息</a></li>
     </ul>
   </div>
+  <script>
+  $(".nav li").click(function() {
+    $(this).siblings().removeClass("on");
+    $(this).addClass("on");
+  });
+  </script>
 
   <div class="gallery">
   </div>

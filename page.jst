@@ -17,6 +17,7 @@
 </head>
 
 <body>
+<div id="currentstate" channel_id="<% get_ch(); %>" lst_id="<% get_page(); %>"></div>
  <div class="global">
  <!--------------------------------------------------------------->
   <div class="header">
@@ -24,13 +25,20 @@
 	 <span class="gochannels"></span>
   </div>
    <div class="nav">
-     <ul>
-      <li class="<% get_ch(1); %>"><a href="./index.jst?mid=1">作业</a></li>
-      <li class="<% get_ch(2); %>"><a href="./index.jst?mid=2">活动</a></li>
-      <li class="<% get_ch(3); %>"><a href="./index.jst?mid=3">科普</a></li>
-      <li class="<% get_ch(4); %>"><a href="./index.jst?mid=4">消息</a></li>
+     <ul id="mynav">
+      <li><a href="./index.jst?mid=0">最新</a></li>
+      <li><a href="./index.jst?mid=1">作业</a></li>
+      <li><a href="./index.jst?mid=2">活动</a></li>
+      <li><a href="./index.jst?mid=3">科普</a></li>
+      <li><a href="./index.jst?mid=4">消息</a></li>
      </ul>
    </div>
+  <script>
+  $(".nav li").click(function() {
+    $(this).siblings().removeClass("on");
+    $(this).addClass("on");
+  });
+  </script>
  <!--------------------------------------------------------------->
   <div id="login" class="login"> 
     <div id="web_login" style="display: block;"> <!--web_login-->

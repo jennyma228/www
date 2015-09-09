@@ -146,6 +146,10 @@ function editertoggle(){
 }
 
 $(document).ready(function(){
+	var obj = document.getElementById("mynav").getElementsByTagName("li");
+  var ch = $("#currentstate").attr("channel_id");
+	obj[ch].className="on";
+
   $(".gochannels").click(function(){
     editertoggle();
   });

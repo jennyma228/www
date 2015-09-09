@@ -80,60 +80,15 @@ function loadlist()
 
 function switchchannel(ch)
 {
-  switch(ch){
-    case 1:
-      $("#ch1").attr("class","on");
-      $("#ch2").attr("class","off");
-      $("#ch3").attr("class","off");
-      $("#ch4").attr("class","off");
-      $("#ch5").attr("class","off");
-      $("#currentstate").attr("channel_id","1");
-      //alert("ch11");
-      break;
-    case 2:
-      $("#ch1").attr("class","off");
-      $("#ch2").attr("class","on");
-      $("#ch3").attr("class","off");
-      $("#ch4").attr("class","off");
-      $("#ch5").attr("class","off");
-      $("#currentstate").attr("channel_id","2");
-      //alert("ch21");
-      break;
-    case 3:
-      $("#ch1").attr("class","off");
-      $("#ch2").attr("class","off");
-      $("#ch3").attr("class","on");
-      $("#ch4").attr("class","off");
-      $("#ch5").attr("class","off");
-      $("#currentstate").attr("channel_id","3");
-      //alert("ch31");
-      break;
-    case 4:
-      $("#ch1").attr("class","off");
-      $("#ch2").attr("class","off");
-      $("#ch3").attr("class","off");
-      $("#ch4").attr("class","on");
-      $("#ch5").attr("class","off");
-      $("#currentstate").attr("channel_id","4");
-      //alert("ch41");
-      break;
-    case 5:
-      $("#ch1").attr("class","off");
-      $("#ch2").attr("class","off");
-      $("#ch3").attr("class","off");
-      $("#ch4").attr("class","off");
-      $("#ch5").attr("class","on");
-      $("#currentstate").attr("channel_id","5");
-      //alert("ch41");
-      break;
-  }
+  $("#currentstate").attr("channel_id",ch);
   loadlist();
 }
 
 $(document).ready(function(){
-  switchchannel(1);
-  //alert("hello1");
+	var obj = document.getElementById("mynav").getElementsByTagName("li");
+  var ch = $("#currentstate").attr("channel_id");
+	obj[ch].className="on";
+
+  loadlist();
 });
-
-
 
