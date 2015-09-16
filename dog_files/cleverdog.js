@@ -56,7 +56,7 @@ function loginwebsite()
       $(".login").hide();
 
       $(".uploader").show();
-      if($(".author").html()==data.auth){
+      if(($(".author").html()==data.auth)||(data.auth == 'admin')){
         $(".contentbar .delete").show();
         $(".textform").show();
       }
@@ -117,7 +117,7 @@ function editertoggle(){
     {
       $(".uploader").show();
       $(".commentform").show();
-      if(user==auth)
+      if((user==auth)||(user=='admin'))
       {
         $(".textform").show();
         $(".contentbar .delete").show();
@@ -134,7 +134,7 @@ function editertoggle(){
     {
       $(".uploader").hide();
       $(".commentform").hide();
-      if(user==auth)
+      if((user==auth)||(user=='admin'))
       {
         $(".textform").hide();
         $(".contentbar .delete").hide();
