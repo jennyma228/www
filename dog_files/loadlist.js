@@ -27,7 +27,6 @@ function loadlist()
           //+' text='+obj.index[i].text
           //+' mode='+obj.index[i].mode
           //+'\n';
-
           if(obj.index[i].mode=="640x330"){
             var html="";
             html='<a href="./page.jst?mid='
@@ -65,6 +64,22 @@ function loadlist()
             +'.jpg"/></div><p>'
             +obj.index[i].text
             +'</p></a></li>';
+            $("#index").append(html);
+          }else if(obj.index[i].mode=="html"){
+            var html="";
+            html='<li class="full"><div class="thumb"><a href="./img_files/'
+            +obj.index[i].page
+            +'.html"><img src="./img_files/'
+            +obj.index[i].pic
+            +'.jpg"/> </div><h2>'
+            +obj.index[i].title
+            +'</h2><p>'
+            +obj.index[i].text
+            +'</p><h3 class="meta">'
+            +obj.index[i].auth
+            +'<time>'
+            +obj.index[i].time
+            +'</time></h3></a></li>';
             $("#index").append(html);
           }
          }
