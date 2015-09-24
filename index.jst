@@ -17,11 +17,12 @@
 </head>
 
 <body>
-<div id="currentstate" channel_id="<% get_ch(); %>" lst_id="2"></div>
+<div id="currentstate" channel_id="<% get_ch(); %>" lst_id="0"></div>
 
 <div class="global">
   <div class="header">
     <h1 class="logo logonews"><a href="./index.jst">机灵狗</a></h1>
+	  <span class="gochannels"></span>
   </div>
 
   <div class="nav">
@@ -38,6 +39,9 @@
     $(this).siblings().removeClass("on");
     $(this).addClass("on");
   });
+  $(".gochannels").click(function(){
+    window.location.href="http://<% get_ip(); %>:5000/ueditor"; 
+  });
   </script>
 
   <div class="gallery">
@@ -48,7 +52,7 @@
     </ul>
   </div>
 
-  <div class="more"> <a href="http://<% get_ip(); %>:5000/ueditor"> <span class="gomore">我要上传</span> </a> </div>
+  <div class="more"> <a href="javascript:loadlist()"> <span class="gomore">更多</span> </a> </div>
 
   <div class="footer">
     <div class="copyright">Copyright &copy; 1998 - 2015 CleverDog. All Rights Reserved</div>

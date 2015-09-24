@@ -33,13 +33,13 @@
       <li><a href="./index.jst?mid=4">消息</a></li>
      </ul>
    </div>
-  <script>
-  $(".nav li").click(function() {
-    $(this).siblings().removeClass("on");
-    $(this).addClass("on");
-  });
-  </script>
- <!--------------------------------------------------------------->
+    <script>
+    $(".nav li").click(function() {
+      $(this).siblings().removeClass("on");
+      $(this).addClass("on");
+    });
+    </script>
+  <!--------------------------------------------------------------->
   <div id="login" class="login"> 
     <div id="web_login" style="display: block;"> <!--web_login-->
       <form id="logmein" name="logmein">
@@ -59,7 +59,7 @@
     <input id="user" name="admin" value="<% get_login(1); %>" showpage="hidden" hidden/>
   </div>
  <!--------------------------------------------------------------->
-  </div><!--global-->
+</div><!--global-->
 <!--------------------------------------------------------------->
  
   <div style="clear:both"></div>
@@ -70,30 +70,17 @@
     <span class="author"><% get_auth(1); %></span>
     <span class="contentbar">
       <a id="delete" href="./action/deletePage?mid=<% get_page(0);%>"><i class="delete" hidden></i></a>
-      <a id="uploader" href="./upload.jst?mid=<% get_page(0);%>"><i class="uploader"  hidden></i></a>
+      <a id="uploader" href="http://<% get_ip(); %>:5000/ueditor"><i class="uploader"  hidden></i></a>
       <i class="last"></i>
-      <i class="next"></i>
+      <!--<i class="next"></i>-->
     </span>
    </div>
-   <!--------------------------------------------------------------->
-   <div data-role="page" class="content fontlarge">
-    <div class="image">
-     <img src="<% get_pic(1); %>" id="imgsrc" />
-    </div>
-    <p class="split" id="mytextDiv"><% get_text(1); %></p>
-   </div>
-   <!--------------------------------------------------------------->
-    <div class="textform" id="file-text" hidden>
-      <form id="formpageText" >
-        <div class="commenttext"> 
-        <input class="titleform" type="text" id="pagetitle" name="mytitle" placeholder="主题"/>
-        <textarea id="pagetext" name="mytext" placeholder="<% get_text(1); %>"></textarea>
-        <button id="upTxt" type="button" onclick="uploadTxt(this)" value=<% get_page(0);%> >发表</button>
-        </div> 
-      </form>
-    </div>
-   <!--------------------------------------------------------------->
   </div><!--primary-->
+ <!--------------------------------------------------------------->
+<!--------------------------------------------------------------->
+<div>
+ <% get_content(1); %>
+</div>
  <!--------------------------------------------------------------->
  <div class="comments">
 
@@ -119,10 +106,11 @@
 
  </div><!-- comments-->
  <!--------------------------------------------------------------->
+<!--------------------------------------------------------------->
   <div class="footer">
    <div class="copyright"> Copyright © 1998 - 2015 CleverDog. All Rights Reserved</div>
   </div>
- <!--------------------------------------------------------------->
+<!--------------------------------------------------------------->
 </body>
 
 </html>

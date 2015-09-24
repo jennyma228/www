@@ -7,11 +7,13 @@ function getJsonLength(jsonData){
 }
 function loadlist()
 {
+  var pagetype = $("#currentstate").attr("channel_id");
+  var pagesubject = $("#currentstate").attr("lst_id");
   $.ajax({
     type:"POST",
     url:"/exe/getList",
     dataType:"json",
-    data:{channel_id:$("#currentstate").attr("channel_id"),lst_id:$("#currentstate").attr("lst_id")},
+    data:{channel_id:pagetype,lst_id:pagesubject},
     success:function(data){
       var obj = eval(data);
       var total=getJsonLength(obj.index);
@@ -46,7 +48,7 @@ function loadlist()
             +'.jpg"/> </div><h2>'
             +obj.index[i].title
             +'</h2><p>'
-            +obj.index[i].text
+            +obj.index[i].summary
             +'</p><h3 class="meta">'
             +obj.index[i].auth
             +'<time>'
@@ -62,19 +64,19 @@ function loadlist()
             +'"><img src="./img_files/'
             +obj.index[i].pic
             +'.jpg"/></div><p>'
-            +obj.index[i].text
+            +obj.index[i].summary
             +'</p></a></li>';
             $("#index").append(html);
           }else if(obj.index[i].mode=="html"){
             var html="";
-            html='<li class="full"><div class="thumb"><a href="./img_files/'
+            html='<li class="full"><div class="thumb"><a href="./templet_a.jst?mid='
             +obj.index[i].page
-            +'.html"><img src="./img_files/'
+            +'"><img src="./img_files/'
             +obj.index[i].pic
             +'.jpg"/> </div><h2>'
             +obj.index[i].title
             +'</h2><p>'
-            +obj.index[i].text
+            +obj.index[i].summary
             +'</p><h3 class="meta">'
             +obj.index[i].auth
             +'<time>'
@@ -84,6 +86,9 @@ function loadlist()
           }
          }
       }
+      if(pagesubject=="0") total-=1;
+      var currentsubject = parseInt(pagesubject) + total;
+      $("#currentstate").attr("lst_id",currentsubject);
       //alert(list);
     },
     complete:function(XMLHttpRequest,textStatus){
@@ -96,6 +101,7 @@ function loadlist()
 function switchchannel(ch)
 {
   $("#currentstate").attr("channel_id",ch);
+  $("#currentstate").attr("lst_id",0);
   loadlist();
 }
 

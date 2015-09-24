@@ -145,6 +145,14 @@ function editertoggle(){
   }
 }
 
+function pageName()
+{
+  var a = location.href;
+  var b = a.split("/");
+  var c = b.slice(b.length-1, b.length).toString(String).split(".");
+  return c.slice(0, 1);
+}
+
 $(document).ready(function(){
 	var obj = document.getElementById("mynav").getElementsByTagName("li");
   var ch = $("#currentstate").attr("channel_id");
@@ -161,7 +169,13 @@ $(document).ready(function(){
     loginwebsite();
   });
   $(".last").click(function(){
-    loadPage("last");
+    var currentpage = pageName();
+    //alert(currentpage);
+    if(currentpage == "page"){
+      loadPage("last");
+    }else{
+      history.back();
+    }
   });
   $(".next").click(function(){
     loadPage("next");
@@ -206,7 +220,7 @@ function loadComment(gettop)
         for(var i=0;i<total;i++) {
           comment+='<li><h3 class="meta" id=a'+obj.comments[i].id+'>'+obj.comments[i].author
           +'<time>'+obj.comments[i].txt_time +'</time></h3>'
-          +'<p class="content">'+obj.comments[i].txt_title;
+          +'<p class="content">'+obj.comments[i].txt_text;
           if($("#user").val()==obj.comments[i].author){
             comment+='<span class="commentbar">'
             +'<a href="javascript:deleteComment('+obj.comments[i].id+')" ><i class="delete"'+pageshow+' ></i></a>'
