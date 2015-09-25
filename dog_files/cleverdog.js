@@ -154,9 +154,12 @@ function pageName()
 }
 
 $(document).ready(function(){
-	var obj = document.getElementById("mynav").getElementsByTagName("li");
-  var ch = $("#currentstate").attr("channel_id");
-	obj[ch].className="on";
+  var currentpage = pageName();
+  if(currentpage != "upload"){
+	  var obj = document.getElementById("mynav").getElementsByTagName("li");
+    var ch = $("#currentstate").attr("channel_id");
+	  obj[ch].className="on";
+  }
 
   $(".gochannels").click(function(){
     editertoggle();
