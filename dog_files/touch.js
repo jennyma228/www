@@ -23,11 +23,11 @@ function touchMoveFunc(evt) {
       if(difx==Math.abs(difx)){
         //alert('向右滑动');
         //loadPage("last");
-        //replaceDoc("./exe/nextPage?mid="+$("#comcount").attr("lst_id")+"&next_last=0");
+        replaceDoc("./exe/nextPage?mid="+$("#comcount").attr("lst_id")+"&next_last=0");
       } else {
         //alert('向左滑动');
         //loadPage("next");
-        //replaceDoc("./exe/nextPage?mid="+$("#comcount").attr("lst_id")+"&next_last=1");
+        replaceDoc("./exe/nextPage?mid="+$("#comcount").attr("lst_id")+"&next_last=1");
       }
     }
     if (Math.abs(dify) > 80) {
