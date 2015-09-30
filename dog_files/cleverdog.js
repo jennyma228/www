@@ -172,13 +172,11 @@ $(document).ready(function(){
     loginwebsite();
   });
   $(".last").click(function(){
-    var currentpage = pageName();
-    //alert(currentpage);
-    if(currentpage == "page"){
-      loadPage("last");
-    }else{
-      history.back();
-    }
+    //var currentpage = pageName();
+    //if(currentpage != "page"){
+    //  history.back();
+    //}
+    loadPage("last");
   });
   $(".next").click(function(){
     loadPage("next");
@@ -268,7 +266,8 @@ function loadPage(next_last)
   var mid=parseInt($("#comcount").attr("lst_id"));
   var flag=(next_last=="last")?"1":"0";
   //alert("next_last:"+next_last+" flag:"+flag);
-
+  var currentpage = pageName();
+ 
   $.ajax({
     type:"POST",
     url:"/exe/nextPage?mid="+mid+"&next_last="+flag,
@@ -276,23 +275,29 @@ function loadPage(next_last)
     data:{mid:$("#comcount").attr("lst_id")},
     success:function(data){
       if(parseInt(data.id)!=mid){
-        //alert("page="+data.id+" time"+data.txt_time+" author"+data.author+" title"+data.txt_title+" text"+data.txt_content+" picture"+data.picture);
-        document.title=data.txt_title;
-        $("#mytitleDiv").html(data.txt_title);
-        $(".time").html(data.txt_time);
-        $(".author").html(data.author);
-        $("#delete").attr("href","./action/deletePage?mid="+data.id);
-        $("#uploader").attr("href","./upload.jst?mid="+data.id);
-        $("#mytextDiv").html(data.txt_content);
-        $("#imgsrc").attr("src",data.picture);
-        $("#comcount").attr("lst_id",data.id);
-        $("#comcount").attr("buttom","1024");
-        $("#comcount").attr("top","1");
-        $(".commentlist").html("");
-        $("#upTxt").attr("value",data.id);
-        $("#upComment").attr("value",data.id);
-        $("#returnmain").attr("href","./exe/returnIndex?mid="+data.id);
-        loadComment("buttom");
+        if(data.pagemode == "html"){
+          window.location.href="./templet_a.jst?mid="+data.id;
+        } else if (currentpage != "page"){
+          window.location.href="./page.jst?mid="+data.id;
+        } else {
+          //alert("page="+data.id+" time"+data.txt_time+" author"+data.author+" title"+data.txt_title+" text"+data.txt_content+" picture"+data.picture);
+          document.title=data.txt_title;
+          $("#mytitleDiv").html(data.txt_title);
+          $(".time").html(data.txt_time);
+          $(".author").html(data.author);
+          $("#delete").attr("href","./action/deletePage?mid="+data.id);
+          $("#uploader").attr("href","./upload.jst?mid="+data.id);
+          $("#mytextDiv").html(data.txt_content);
+          $("#imgsrc").attr("src",data.picture);
+          $("#comcount").attr("lst_id",data.id);
+          $("#comcount").attr("buttom","1024");
+          $("#comcount").attr("top","1");
+          $(".commentlist").html("");
+          $("#upTxt").attr("value",data.id);
+          $("#upComment").attr("value",data.id);
+          $("#returnmain").attr("href","./exe/returnIndex?mid="+data.id);
+          loadComment("buttom");
+        }
       }
     },
     complete:function(XMLHttpRequest,textStatus){
