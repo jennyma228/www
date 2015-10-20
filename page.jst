@@ -99,7 +99,7 @@
 
   <div class="commentform" hidden> 
     <form id="myComment" class="commenttext">
-      <textarea name="mytext" placeholder="文明上网，理性发言"></textarea> 
+      <textarea  id="commentstring" name="mytext" placeholder="文明上网，理性发言"></textarea> 
       <input type="text" name="mytitle" value="comment" hidden></input>
       <button id="upComment" type="button" onclick="uploadComment(this)" value=<% get_page(0);%> >评论</button>
     </form>
@@ -124,5 +124,11 @@
   </div>
  <!--------------------------------------------------------------->
 </body>
-
+<script>
+$(document).ready(function(){
+   $("#mytitleDiv").html(unescape($("#mytitleDiv").html()));
+   $("#mytextDiv").html(unescape($("#mytextDiv").html()));
+   document.title= unescape(document.title);
+});
+</script>
 </html>
