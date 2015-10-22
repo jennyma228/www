@@ -3,8 +3,8 @@ function uploadTxt(page)
   var text=document.getElementById("pagetext").value;
   var title=document.getElementById("pagetitle").value;
   //haha=((haha.replace(/<(.+?)>/gi,"&lt;$1&gt;")).replace(/ /gi,"&nbsp;")).replace(/\n/g,"<br/>");
-  document.getElementById("pagetext").value=escape(text);
-  document.getElementById("pagetitle").value=escape(title);
+  document.getElementById("pagetext").value=encodeURIComponent(text);
+  document.getElementById("pagetitle").value=encodeURIComponent(title);
 
   var formParam = $("#formpageText").serialize(); 
   $.ajax({
@@ -13,18 +13,18 @@ function uploadTxt(page)
      dataType:"json",
      data:formParam,
      success:function(data){
-       $("#mytitleDiv").html(unescape(data.mytitle));
-       $("#mytextDiv").html(unescape(data.mytext));
+       $("#mytitleDiv").html(decodeURIComponent(data.mytitle));
+       $("#mytextDiv").html(decodeURIComponent(data.mytext));
      }
   })
   document.getElementById("pagetext").value=text;
-  document.getElementById("pagetext").value=title;
+  document.getElementById("pagetitle").value=title;
 }
 
 function uploadComment(page)
 {
   var haha=document.getElementById("commentstring").value;
-  document.getElementById("commentstring").value=escape(haha);
+  document.getElementById("commentstring").value=encodeURIComponent(haha);
   var formParam = $("#myComment").serialize(); 
   $.ajax({
      type:"POST",
@@ -228,7 +228,7 @@ function loadComment(gettop)
         for(var i=0;i<total;i++) {
           comment+='<li><h3 class="meta" id=a'+obj.comments[i].id+'>'+obj.comments[i].author
           +'<time>'+obj.comments[i].txt_time +'</time></h3>'
-          +'<p class="content">'+ unescape(obj.comments[i].txt_text);
+          +'<p class="content">'+ decodeURIComponent(obj.comments[i].txt_text);
           if($("#user").val()==obj.comments[i].author){
             comment+='<span class="commentbar">'
             +'<a href="javascript:deleteComment('+obj.comments[i].id+')" ><i class="delete"'+pageshow+' ></i></a>'
@@ -289,12 +289,12 @@ function loadPage(next_last)
         } else {
           //alert("page="+data.id+" time"+data.txt_time+" author"+data.author+" title"+data.txt_title+" text"+data.txt_content+" picture"+data.picture);
           document.title=data.txt_title;
-          $("#mytitleDiv").html(unescape(data.txt_title));
+          $("#mytitleDiv").html(decodeURIComponent(data.txt_title));
           $(".time").html(data.txt_time);
           $(".author").html(data.author);
           $("#delete").attr("href","./action/deletePage?mid="+data.id);
           $("#uploader").attr("href","./upload.jst?mid="+data.id);
-          $("#mytextDiv").html(unescape(data.txt_content));
+          $("#mytextDiv").html(decodeURIComponent(data.txt_content));
           $("#imgsrc").attr("src",data.picture);
           $("#comcount").attr("lst_id",data.id);
           $("#comcount").attr("buttom","1024");

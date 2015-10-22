@@ -36,7 +36,7 @@ function loadlist()
             +'" class="galleryinner"><div class="galleryimage"><img src="./img_files/'
             +obj.index[i].pic
             +'.jpg" /> </div><h2 class="gallerytitle">'
-            +unescape(obj.index[i].title)
+            +decodeURIComponent(obj.index[i].title)
             +'</h2></a>';
             $(".gallery").html(html);
           }else if(obj.index[i].mode=="150x120"){
@@ -46,9 +46,9 @@ function loadlist()
             +'"><img src="./img_files/'
             +obj.index[i].pic
             +'.jpg"/> </div><h2>'
-            +unescape(obj.index[i].title)
+            +decodeURIComponent(obj.index[i].title)
             +'</h2><p>'
-            +unescape(obj.index[i].summary)
+            +decodeURIComponent(obj.index[i].summary)
             +'</p><h3 class="meta">'
             +obj.index[i].auth
             +'<time>'
@@ -58,13 +58,13 @@ function loadlist()
           }else if(obj.index[i].mode=="640x140"){
             var html="";
             html='<li class="photo"><h2>'
-            +unescape(obj.index[i].title)
+            +decodeURIComponent(obj.index[i].title)
             +'</h2><div class="thumb"><a href="./page.jst?mid='
             +obj.index[i].page
             +'"><img src="./img_files/'
             +obj.index[i].pic
             +'.jpg"/></div><p>'
-            +unescape(obj.index[i].summary)
+            +decodeURIComponent(obj.index[i].summary)
             +'</p></a></li>';
             $("#index").append(html);
           }else if(obj.index[i].mode=="html"){
@@ -74,9 +74,9 @@ function loadlist()
             +'"><img src="./img_files/'
             +obj.index[i].pic
             +'.jpg"/> </div><h2>'
-            +unescape(obj.index[i].title)
+            +decodeURIComponent(obj.index[i].title)
             +'</h2><p>'
-            +unescape(obj.index[i].summary)
+            +decodeURIComponent(obj.index[i].summary)
             +'</p><h3 class="meta">'
             +obj.index[i].auth
             +'<time>'
