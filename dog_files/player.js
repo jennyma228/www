@@ -13,7 +13,13 @@ function playmedia()
 {
   var mediafile = $("#mediafile").val();
   $("#msg").html("正在播放"+mediafile); 
-  playvideo(mediafile);
+  var filetype = mediafile.substring(mediafile.lastIndexOf(".")).toLowerCase();
+  if(filetype=='.mp4')
+    playvideo(mediafile);
+  else if(filetype=='.mp3')
+    playaudio(mediafile);
+  else
+    $("#msg").html("无法播放"+mediafile); 
 }
 
 $(document).ready(function()
