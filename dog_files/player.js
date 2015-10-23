@@ -10,7 +10,7 @@ function playvideo(file)
         if(myVid.currentTime!=0)
             myVid.currentTime=0;
     }
-    var html='<p><video id="video1" class="edui-upload-video vjs-default-skin video-js" controls="controls" autoplay="autoplay" preload="none" width=100%; src="'+file+'" data-setup="{}"><source src="'+file+'" type="video/mp4"></source>Your browser does not support the video tag.</video></p>';
+    var html='<p><video id="video1" class="edui-upload-video vjs-default-skin video-js" controls="controls" autoplay="autoplay" preload="none" width=100%; data-setup="{}"><source src="'+file+'" type="video/mp4"></source>Your browser does not support the video tag.</video></p>';
     $(".myplayer").html(html);
 }
 
